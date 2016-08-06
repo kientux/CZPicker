@@ -61,6 +61,8 @@
 - (void)czpickerViewDidClickCancelButton:(CZPickerView *)pickerView;
 @end
 
+typedef void (^CZDismissCompletionCallback)(void);
+
 @interface CZPickerView : UIView<UITableViewDataSource, UITableViewDelegate>
 
 /** Initialize the picker view with titles
@@ -74,6 +76,9 @@
 
 /** show the picker */
 - (void)show;
+
+/** dismiss the picker */
+- (void)dismissPicker:(CZDismissCompletionCallback)completion;
 
 /** return previously selected row, in array of NSNumber form. */
 - (NSArray *)selectedRows;
