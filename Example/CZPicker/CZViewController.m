@@ -75,6 +75,15 @@
     NSLog(@"Canceled.");
 }
 
+- (void)czpickerViewDidClickConfirmButton:(CZPickerView *)pickerView {
+    [[[UIAlertView alloc] initWithTitle:@"You tapped confirm button!"
+                                message:@"I won't choose your selected row"
+                               delegate:nil
+                      cancelButtonTitle:@"I know"
+                      otherButtonTitles:nil, nil]
+     show];
+}
+
 - (IBAction)showWithImages:(id)sender {
     self.pickerWithImage = [[CZPickerView alloc] initWithHeaderTitle:@"Fruits" cancelButtonTitle:@"Cancel" confirmButtonTitle:@"Confirm"];
     self.pickerWithImage.delegate = self;

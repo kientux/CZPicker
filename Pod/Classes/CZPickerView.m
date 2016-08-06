@@ -265,7 +265,9 @@ typedef void (^CZDismissCompletionCallback)(void);
         if(self.allowMultipleSelection && [self.delegate respondsToSelector:@selector(czpickerView:didConfirmWithItemsAtRows:)]){
             [self.delegate czpickerView:self didConfirmWithItemsAtRows:[self selectedRows]];
         }
-        
+        else if (!self.allowMultipleSelection && [self.delegate respondsToSelector:@selector(czpickerViewDidClickConfirmButton:)]) {
+            [self.delegate czpickerViewDidClickConfirmButton:self];
+        }
         else if(!self.allowMultipleSelection && [self.delegate respondsToSelector:@selector(czpickerView:didConfirmWithItemAtRow:)]){
             if (self.selectedIndexPaths.count > 0){
                 NSInteger row = ((NSIndexPath *)self.selectedIndexPaths[0]).row;

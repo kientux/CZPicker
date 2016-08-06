@@ -51,6 +51,12 @@
 - (void)czpickerView:(CZPickerView *)pickerView
           didConfirmWithItemsAtRows:(NSArray *)rows;
 
+/** delegate method for clicking confirm button
+ * Note: if this method is implemented then 
+ * -czpickerView:didConfirmWithItemAtRow: won't fire
+ * when click confirm button */
+- (void)czpickerViewDidClickConfirmButton:(CZPickerView *)pickerView;
+
 /** delegate method for canceling */
 - (void)czpickerViewDidClickCancelButton:(CZPickerView *)pickerView;
 @end
