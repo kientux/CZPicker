@@ -372,7 +372,7 @@ typedef void (^CZDismissCompletionCallback)(void);
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
         
-        if(!self.needFooterView && [self.delegate respondsToSelector:@selector(czpickerView:didConfirmWithItemAtRow:)]){
+        if([self.delegate respondsToSelector:@selector(czpickerView:didConfirmWithItemAtRow:)]){
             [self dismissPicker:^{
                 [self.delegate czpickerView:self didConfirmWithItemAtRow:indexPath.row];
             }];
